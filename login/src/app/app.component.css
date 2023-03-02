@@ -1,0 +1,9 @@
+.main-body{
+    color:blueviolet;
+    margin: center;
+    display: grid;
+
+}
+.main-body .hello{
+    height: 30px;
+}

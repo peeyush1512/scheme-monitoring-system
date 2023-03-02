@@ -1,0 +1,13 @@
+.home nav{
+    display: flex;
+    flex-direction: row;
+}
+.home nav ul a{
+    padding: 2px ;
+    color: blue;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows:25% 25% 25% 25% ;
+}

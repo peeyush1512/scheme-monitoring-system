@@ -1,0 +1,74 @@
+/* .body-form{
+    display: grid;
+    grid-template-columns: 25% 50% 25% ;
+} */
+.body-form{
+    
+    display: grid ;
+    grid-template-columns:25% 50% 25%;
+    /* grid-template-rows: 70% 30%; */
+}
+.body-form .login,.body-form .registration{
+    border: 2px solid #7b5959 ;
+    width: 300px;
+    height: auto;
+    margin-top: 100px;
+    margin: auto;
+}
+
+.login form .form-group ,.registration form .form-group{
+    display: flex;
+    margin: auto auto ;
+    width: 250px;
+    margin-bottom: 10px;
+}
+.login h1 , .registration h1 ,.registration .UPDATE h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+.login , .registration{
+    margin-top: 150px;
+}
+.registration h1{
+    width: 120px;
+}
+.registration .UPDATE h1{
+    width: 180px;
+}
+.login h1{
+    width: 100px;
+}
+.body-form .login form .form-group label,.body-form .registration form .form-group label{
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.login  .change-form , .registration  .change-form{
+    display: flex;
+    margin: auto;
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:  blue;
+
+}
+.body-form .login form .form-group input,.body-form .registration form .form-group input{
+    font-size: 15px;
+    margin-left: 10px ;
+    border: 1px solid orange;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.login form .form-button , .registration form .form-button{
+    display: flex;
+    margin: auto;
+    width: 100px;
+}
+.login form button{
+    text-align: center;
+}

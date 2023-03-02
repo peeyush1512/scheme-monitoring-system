@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+
+  loginurl ="http://localhost:3001/user/login";
+  loginuserurl ="http://localhost:3001/user/loginuser";
+  registrationurl="http://localhost:3001/user/registration";
+  gettotaluser="http://localhost:3001/user/loginuser";
+  registrationuserurl="http://localhost:3001/user/registrationuser";
+  updateuserurl = "http://localhost:3001/user/update"
+  constructor( private http: HttpClient) { }
+
+// public temp : any;
+
+//login user
+login(data : any ){
+        
+  return this.http.post(this.loginurl,data);
+}
+  loginuser(data : any ){
+        
+    return this.http.post(this.loginuserurl,data);
+  }
+
+  getuser( ){
+        
+    return this.http.get(this.gettotaluser);
+  }
+
+  //update user 
+  updateuser(data : any ){
+    return this.http.post(this.updateuserurl,data)
+  }
+
+
+  //add new user
+  registration(data : any ){
+    return this.http.post(this.registrationurl,data );
+  }
+  registrationuser(data : any ){
+    return this.http.post(this.registrationuserurl,data );
+  }
+}
