@@ -7,3 +7,34 @@
 .main-body .hello{
     height: 30px;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* .header{
+    height: 10%;
+    width: 100%;
+}
+.side-menu{
+    height: 90%;
+    width: 10%;
+}
+.body{
+    height: 80%;
+    width: 90%;
+}
+.footer{
+    height: 10%;
+    width: 90%;
+} */

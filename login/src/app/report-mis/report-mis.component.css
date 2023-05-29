@@ -1,0 +1,46 @@
+table{
+    display: flexbox;
+    justify-self: center;
+    border: 2px solid black ;
+    color: black;
+    margin-left: 150px;
+
+}
+
+table tr th{
+    padding-top: 5px;
+    font-size: 25px;
+    color: deeppink;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    width: auto;
+    border: 1px solid  skyblue;
+    /* margin: 5px 5px 5px 5px; */
+}
+table tr td{
+    width: auto;
+    font-size: 15px;
+    color: darkblue;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid skyblue;
+    margin: 5px 5px 5px 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+/* .id{
+    width: 20px;
+}
+.dis{
+    width: 50px;
+}
+.claim{
+    width: 50px;
+}
+.amount{
+    width: 50px;
+}
+.date{
+    width: 50px;
+} */

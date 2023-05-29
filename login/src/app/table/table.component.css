@@ -1,0 +1,21 @@
+table{
+    margin-left: 30px;
+}
+table tr td{
+    margin-bottom: 5px;
+}
+table tr .t1{
+    width: 40px ;
+}
+table tr .t2{
+    width: 100px  ;
+}
+table tr .t3{
+    width: 200px ;
+}
+table tr .t4{
+    width: 100px;
+}
+table tr .t5{
+    width:50px ;
+}

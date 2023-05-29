@@ -3,6 +3,10 @@ import { Router, ActivatedRoute ,Navigation } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -20,7 +24,8 @@ export class RegistrationComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-      private loginService:LoginService
+      private loginService:LoginService,
+      private toastr :ToastrService
       // private authenticationService: AuthenticationService
   ){ 
       
@@ -43,10 +48,14 @@ export class RegistrationComponent implements OnInit {
         "age":this.registrationForm.controls['age'].value,
         "mobile":this.registrationForm.controls['mobile'].value
     }
-    this.loginService.registrationuser(this.getjson).subscribe((results)=>{
-            console.warn(results);
-            this.getjson=results;
-            this.router.navigate(['login']);
+    this.loginService.registrationuser(this.getjson).subscribe((results:any )=>{
+
+      if(results.message){
+        this.toastr.success(results.message)
+      }
+      else{
+        this.toastr.error(results.message)
+      }
           })
 }
 

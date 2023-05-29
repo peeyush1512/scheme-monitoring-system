@@ -8,9 +8,10 @@ export class LoginService {
   loginurl ="http://localhost:3001/user/login";
   loginuserurl ="http://localhost:3001/user/loginuser";
   registrationurl="http://localhost:3001/user/registration";
-  gettotaluser="http://localhost:3001/user/loginuser";
+  gettotaluser="http://localhost:3001/user/totaluser";
+  getuserdataurl="http://localhost:3001/user/getdata"
   registrationuserurl="http://localhost:3001/user/registrationuser";
-  updateuserurl = "http://localhost:3001/user/update"
+  updateuserurl = "http://localhost:3001/user/update";
   constructor( private http: HttpClient) { }
 
 // public temp : any;
@@ -25,6 +26,10 @@ login(data : any ){
     return this.http.post(this.loginuserurl,data);
   }
 
+  getuserdata( ){
+        
+    return this.http.get(this.getuserdataurl);
+  }
   getuser( ){
         
     return this.http.get(this.gettotaluser);
@@ -34,6 +39,7 @@ login(data : any ){
   updateuser(data : any ){
     return this.http.post(this.updateuserurl,data)
   }
+
 
 
   //add new user

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <!-- <h3>Request a Demo</h3>
+                <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for
+                    you.</p> -->
+                <div class="card">
+                    <h5 class="text-center mb-4">HOSPITAL LOGIN</h5>
+     
+                <form [formGroup]="hospitalloginform" (ngSubmit)="submit()">
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="hospitalcode">Hospital Code
+                            <span class="text-danger"> *</span></label>
+                            <select class="custom-select mb-3" formControlName="hospitalcode">
+                                <option value=""> select Hospital Code</option>
+                                <option *ngFor="let hospitalcode of hcode" [ngValue]="hospitalcode.hospitalcode">
+                                    {{ hospitalcode.hospitalcode }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="noofopd">Number Of OPD's
+                                <span class="text-danger"> *</span></label>
+                            <input type="number" id="noofopd" formControlName="noofopd" placeholder="Enter the total opd's">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('noofopd')?.touched && hospitalloginform.get('noofopd')?.invalid">Required to fill the box 
+                                </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="noofipd">Number of IPD's
+                                <span class="text-danger"> *</span></label>
+                            <input type="number" id="noofipd" formControlName="noofipd" placeholder="Enter the total ipd's">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('noofipd')?.touched && hospitalloginform.get('noofipd')?.invalid">Required to fill the box 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="totalbedoccupied">Total Bed Occupied
+                                <span class="text-danger"> *</span></label>
+                            <input type="number" id="totalbedoccupied" formControlName="totalbedoccupied" placeholder="Enter Total Bed Occupied">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('totalbedoccupied')?.touched && hospitalloginform.get('totalbedoccupied')?.invalid">Required to fill the box 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="totalayushman">Total Ayushman
+                                <span class="text-danger"> *</span></label>
+                            <input type="number" id="totalayushman" formControlName="totalayushman" placeholder="Enter Total Ayushman">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('totalayushman')?.touched && hospitalloginform.get('totalayushman')?.invalid">Required to fill the box 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="mobile">Mobile Number
+                                <span class="text-danger"> *</span></label>
+                            <input type="number" id="mobile" formControlName="mobile" placeholder="Enter your Mobile Number ">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('mobile')?.touched && hospitalloginform.get('mobile')?.invalid ">Mobile number not valid
+                                </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="email">Email ID
+                                <span class="text-danger"> *</span></label>
+                            <input type="email" id="email" formControlName="email" placeholder="Enter your Email ID">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('email')?.touched && hospitalloginform.get('email')?.invalid">Enter valid Email 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="password">Password
+                                <span class="text-danger"> *</span></label>
+                            <input type="password" id="password" formControlName="password" placeholder="pass@123">
+                            <label style="color: red;" *ngIf="hospitalloginform.get('password')?.touched  && hospitalloginform.get('password')?.invalid">not valid password
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="repassword">Re Enter Password
+                                <span class="text-danger"> *</span></label>
+                            <input type="password" id="repassword" formControlName="repassword" placeholder="Re-Enter Password" (change)="matchpass()">
+                            <!-- <label style="color: red;" *ngIf="hospitalloginform.get('repassword')?.touched && hospitalloginform.get('repassword')?.invalid ">Password Required 
+                            </label> -->
+                            <label style="color: red;" *ngIf="hospitalloginform.get('repassword')?.touched && matchpassword">password not matched 
+                            </label>
+                        </div>
+                    </div>
+
+                    <div *ngIf="formnotvalid" class="alert">
+                        <div class="form-group col-sm-6">
+                            fill the All fields
+                            <!-- <button type="submit" class="btn-block btn-primary">SUBMIT</button> -->
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-sm-6">
+                            <button  class="btn-block btn-primary" >SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

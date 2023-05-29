@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { first } from 'rxjs/operators';
 // import { AuthenticationService } from '../_services';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,25 +19,30 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
     loginForm !: FormGroup;
-  
+    public getjson:any;
+    // public returnuser : any ;
     
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private loginService:LoginService
+        ,private toastr :ToastrService
         // private authenticationService: AuthenticationService
     ){ 
         
     }
-    public getjson:any;
+    
 
     ngOnInit() {
+      if(localStorage.getItem('user')){
+        this.router.navigate(['home']);
+      }
         this.loginForm = this.formBuilder.group({
             name: ['', [Validators.required]],
             password: ['', [Validators.required]]
         });
- 
+        
     }
 
     // convenience getter for easy access to form fields
@@ -51,20 +56,28 @@ export class LoginComponent implements OnInit {
             
         }
         this.loginService.loginuser(this.getjson).subscribe((results : any )=>{
-                console.warn(results);
-                this.getjson=results;
-                if(results)
-                    this.router.navigate(['home']);
-                else{
+          
+                   
+          if(results.message){
+                  this.toastr.info("user name password not currect");
                   this.router.navigate(['login']);
-
-                  }
-              })  
+            }
+            else{              
+              if(results[0].name){
+                this.toastr.success(results[0].name,"Welcome");
+                localStorage.setItem('user',results[0].id)
+                this.router.navigate(['home']);
+              }
+              else{
+                 this.toastr.error(results);
+                 this.router.navigate(['login']);
+              }            
+            }      
+        })  
     }
     public registration_page() {
       this.router.navigate(['registration']);
     }
-  
     public home_page() {
       this.router.navigate(['home']);
       

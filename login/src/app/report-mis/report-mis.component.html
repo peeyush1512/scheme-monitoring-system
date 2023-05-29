@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <th class="id">S. No.</th>
+        <th class="dis">District Name</th>
+        <th class="claim">Total Number of Claims</th>
+        <th class="amount">Total Claim Amount in (cr.) Rs.</th>
+        <th class="date">Entry Date</th>
+    </tr>
+    <tr *ngFor="let misreport of reportmis">
+        <td class="id">{{misreport.id}}</td>
+        <td class="dis">{{misreport.districtname}}</td>
+        <td class="claim">{{misreport.noofclaims}}</td>
+        <td class="amount">{{misreport.claimamount}}</td>
+        <td class="date">{{misreport.entrydate}}</td>
+    </tr>
+
+</table>

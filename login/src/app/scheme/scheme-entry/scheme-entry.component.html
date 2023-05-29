@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <!-- <h3>Request a Demo</h3>
+                <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for
+                    you.</p> -->
+                <div class="card">
+                    <h5 class="text-center mb-4">HOSPITAL LOGIN</h5>
+     
+                <form [formGroup]="scheme" (ngSubmit)="schemeadd()">
+                  
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="repassword">Scheme Name
+                                <span class="text-danger"> *</span></label>
+                            <input type="text" id="schemename" formControlName="schemename" placeholder="Enter Scheme name" >
+                            <label style="color: red;" *ngIf="scheme.get('schemename')?.touched">Enter Scheme name 
+                            </label>
+                        </div>
+                    </div>
+                  
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="repassword">Scheme API
+                                <span class="text-danger"> *</span></label>
+                            <input type="text" id="schemeapi" formControlName="schemeapi" placeholder="Enter scheme api" >
+                            <label style="color: red;" *ngIf="scheme.get('schemeapi')?.touched">Enter scheme api
+                            </label>
+                        </div>
+                    </div>
+
+                    <div *ngIf="formnotvalid" class="alert">
+                        <div class="form-group col-sm-6">
+                            fill the All fields
+                            <!-- <button type="submit" class="btn-block btn-primary">SUBMIT</button> -->
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-sm-6">
+                            <button  class="btn-block btn-primary" >SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

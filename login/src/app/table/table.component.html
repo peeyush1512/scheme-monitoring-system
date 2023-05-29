@@ -1,0 +1,32 @@
+
+<div>
+    <div>
+        <table>
+            <tr>
+                <th>S.NO.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Age</th>
+            </tr>
+            <tr *ngFor="let t1 of temp">
+                <td class="t1">{{t1.id}}</td>
+                <td class="t2">{{t1.name}}</td>
+                <td class="t3">{{t1.email}}</td>
+                <td class="t4">{{t1.mobile}}</td>
+                <td class="t5">{{t1.age}}</td>
+            </tr>
+        </table>
+    </div>
+    
+</div>
+<!-- 
+<table>
+    <tr *ngfor="let t1 of temp">
+        <td>{{t1.id}}</td>
+        <td>{{t1.name}}</td>
+        <td>{{t1.email}}</td>
+        <td>{{t1.mobile}}</td>
+        <td>{{t1.age}}</td>
+    </tr>
+</table> -->
