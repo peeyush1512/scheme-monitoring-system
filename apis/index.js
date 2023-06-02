@@ -17,6 +17,7 @@ const userRoute10 =require('./routes/apiscall');
 const userRoute11 =require('./routes/callapi');
 const userRoute12 =require('./routes/changepassword');
 const userRoute13 =require('./routes/login');
+const userRoute14 =require('./routes/democrypt');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/apis',userRoute10)
 app.use('/callapi',userRoute11)
 app.use('/changepassword',userRoute12)
 app.use('/login',userRoute13)
+app.use('/crypt',userRoute14)
 app.listen(process.env.PORT_SERVER || 3001 );
 
 

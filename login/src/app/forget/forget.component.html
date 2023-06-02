@@ -1,0 +1,72 @@
+<body>
+    <div class="container-fluid px-1 py-5 size1 ">
+        <div class="row d-flex justify-content-center">
+            <div class="size1">
+                <form [formGroup]="userform" (ngSubmit)="usersubmit()">
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="username">UserName 
+                                <span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control-input" id="username" formControlName="username" placeholder="Enter your username">
+                            <label style="color: red;" class="form-control-label" *ngIf="userform.get('username')?.touched && userform.get('username')?.invalid">Required to fill the box 
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center text-left">
+                            <div class="form-group col-sm-6 flex-column ">
+                                <button [disabled]="sendflag" class="btn btn-primary">send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <div class="size1" *ngIF="sendflag">
+                <form [formGroup]="otpform" (ngSubmit)="otpsubmit()">
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <label class="form-control-label px-3" for="otp">Enter OTP 
+                                <span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control-input" id="otp" formControlName="otp" placeholder="Enter your otp">
+                            <label style="color: red;" class="form-control-label" *ngIf="otpform.get('otp')?.touched && otpform.get('otp')?.invalid">Required to fill the box 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-left">
+                        <div class="form-group col-sm-6 flex-column ">
+                            <button [disabled]="varifyflag" class="btn btn-primary">Verify</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+           </div>
+           <div  class="size1" *ngIf="varifyflag">
+            <form [formGroup]="newpasswordform" (ngSubmit)="newpasswordsubmit()">
+                <div class="row justify-content-center text-left">
+                    <div class="form-group col-sm-6 flex-column ">
+                        <label class="form-control-label px-3" for="password">Enter Password 
+                            <span class="text-danger"> *</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" class="form-control-input" id="password" formControlName="password" placeholder="Enter your password">
+                        <label style="color: red;" class="form-control-label" *ngIf="userform.get('password')?.touched && userform.get('password')?.invalid">Required to fill the box 
+                        </label>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-left">
+                    <div class="form-group col-sm-6 flex-column ">
+                        <label class="form-control-label px-3" for="password"> Re-Enter Password 
+                            <span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control-input" id="password" formControlName="password" (change)="matchpass()" placeholder="Re-Enter your password">
+                        <label style="color: red;" *ngIf="newpasswordform.get('repassword')?.touched && matchpassword">password not matched 
+                        </label>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-left">
+                    <div class=" col-sm-6 flex-column ">
+                        <button class="btn btn-primary">Change Password</button>
+                    </div>
+                </div>
+            </form>
+           </div>
+    </div>
+</body>

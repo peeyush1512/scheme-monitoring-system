@@ -220,10 +220,10 @@ router.get('/ayushmaan',(req,res)=>{
       }
     })
 })
+ 
 
 
-
-
+ 
 //SOTTO API
 router.get('/sotto',(req,res)=>{
 
@@ -244,14 +244,14 @@ router.get('/sotto',(req,res)=>{
   })
 })
 
-
+ 
 
 //claim summary by year 
 router.get('/claimdetail',(req,res)=>{
 
   soap.createClient(url1,{},(err,client)=>{
     if(!err){
-      client.ayushmaan_details({},(error,result)=>{
+      client.claims_details({},(error,result)=>{
         console.log(result);
         if(!error){
           return res.status(200).json(JSON.parse(result.claim_detailsResult));

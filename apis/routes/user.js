@@ -21,7 +21,7 @@ router.get('/totaluser',(req,res)=>{
 
 router.get('/profile/:id',(req,res)=>{
     let body=req.params;
-    query="select id,name,age,mobile,email,distname from registration where id=?; "
+    query="select id,username,name,age,mobile,email,distname from registration where id=?; "
     connection.query(query,[body.id],(err,results)=>{
         if(!err){
             return res.status(200).json(results);
@@ -50,7 +50,7 @@ router.get('/getdata',(req,res)=>{
 
 router.post('/loginuser',(req,res)=>{
     let user = req.body;
-    query = "select id,name,age,email,mobile,role from registration where name=? && password=?"
+    query = "select id,username,name,age,email,mobile,role from registration where name=? && password=?"
     connection.query(query,[user.name,user.password],(err,results)=>{
         if(!err){
             if(results.length <= 0 ){

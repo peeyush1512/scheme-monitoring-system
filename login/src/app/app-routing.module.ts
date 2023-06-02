@@ -16,6 +16,8 @@ import { SchemeEntryComponent } from './scheme/scheme-entry/scheme-entry.compone
 import { TableComponent } from './table/table.component';
 import { DemotestComponent } from './demos/demotest/demotest.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ForgetComponent } from './forget/forget.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,14 @@ const routes: Routes = [
 {
   path:'login',
   component:LoginComponent
+},
+{
+  path:'changepassword',
+  component:ChangepasswordComponent
+},
+{
+  path:'forget',
+  component:ForgetComponent
 },
 {
   path:'registration',
@@ -63,7 +73,7 @@ const routes: Routes = [
   component:HomeComponent,
   children:[
     {
-      path:'immunizationentry',
+      path:'/immunizationentry',
       component:ImmunizationDetailsEntryComponent,
       
     } ,

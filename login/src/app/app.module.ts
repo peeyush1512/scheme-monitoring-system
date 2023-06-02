@@ -38,6 +38,7 @@ import { DemotestComponent } from './demos/demotest/demotest.component';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { HospitalhomeComponent } from './hospital/hospitalhome/hospitalhome.component';
+import { ForgetComponent } from './forget/forget.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { HospitalhomeComponent } from './hospital/hospitalhome/hospitalhome.comp
     DemotestComponent,
     ChangepasswordComponent,
     HospitalhomeComponent,
+    ForgetComponent,
     
   ],
   imports: [

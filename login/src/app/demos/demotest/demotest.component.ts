@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DemotestService } from './demotest.service';
 import { CaptchaService } from '../../captcha/captcha.service'
 import {formatDate ,DatePipe} from '@angular/common';
+
 import { Color } from '../../../assets/vendor/chart.js/types/types/color';
 
 
@@ -22,6 +23,9 @@ export class DemotestComponent implements OnInit{
   }
   ngOnInit(): void {    
     this.svgCaptcha()
+    this.service.getcrypt();
+    // console.log(process.env['DB_NAME']);
+    
 
     // this.service1.getcaptcha().subscribe((result:any)=>{
     //   console.log(result);
