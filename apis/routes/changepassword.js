@@ -5,6 +5,14 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 let query = require('express');
 
+
+// const accountSid = 'ACacf805bf16cd15d66d8b60052e470af7';
+// const authToken = '48886b1a41a93657535eca7d996ddf2b';
+// const client = require('twilio')(accountSid, authToken);
+
+
+
+
 router.post('/change', (req, res) => {
     body = req.body;
     query = "select * from registration where name=? && password = ?";
@@ -83,7 +91,21 @@ router.post('/forget', (req, res) => {
 
 
 
+router.post('/sms',(req,res)=>{
 
+    const accountSid = 'ACacf805bf16cd15d66d8b60052e470af7';
+    const authToken = '48886b1a41a93657535eca7d996ddf2b';
+    const client = require('twilio')(accountSid, authToken);
+    
+    client.messages
+        .create({
+            body: 'hhhh',
+            from: '+13613263701',
+            to: '+916266345637'
+        })
+        .then(message => console.log(message.sid))
+        .done();
+}) 
 
 
 

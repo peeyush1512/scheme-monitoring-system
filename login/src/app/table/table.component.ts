@@ -9,8 +9,7 @@ import { LoginService } from '../services/login.service';
 export class TableComponent  implements OnInit{
 
   temp:any;  
-  constructor(
-    private loginService:LoginService){
+  constructor(private loginService:LoginService){
 
   }
   ngOnInit(): void {

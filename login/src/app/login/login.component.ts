@@ -59,14 +59,24 @@ export class LoginComponent implements OnInit {
           
                    
           if(results.message){
-                  this.toastr.info("user name password not currect");
+                  this.toastr.info(results.message);
                   this.router.navigate(['login']);
             }
             else{              
               if(results[0].name){
                 this.toastr.success(results[0].name,"Welcome");
                 localStorage.setItem('user',results[0].id)
-                this.router.navigate(['home']);
+                localStorage.setItem('role',results[0].role)
+                if(results[0].role==1 || results[0].role==2){
+                  this.router.navigate(['home']);
+                }
+                else 
+                if(results[0].role==3){
+                  this.router.navigate(['loginhospital']);
+                }
+                else{
+                  this.router.navigate(['demotest']);
+                } 
               }
               else{
                  this.toastr.error(results);

@@ -24,6 +24,7 @@
     "nodemailer": "^6.9.3",
     "soap": "^1.0.0",
     "svg-captcha": "^1.4.0",
+    "twilio": "^4.11.2",
     "xml-js": "^1.6.11",
     "xml2json": "^0.12.0"
   },

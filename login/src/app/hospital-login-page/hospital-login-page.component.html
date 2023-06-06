@@ -1,80 +1,119 @@
-<section class="section about-section gray-bg" id="about">
-    <div class="container">
-        <div class="row align-items-center flex-row-reverse">
-            <div class="col-lg-6">
-                <div class="about-text go-to">
-                    <h3 class="dark-color">Profile</h3>
-                    <!-- <h6 class="theme-color lead">A Lead UX &amp; UI designer based in Canada</h6>
-                    <p>I <mark>design and develop</mark> services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through the bold interface and meaningful interactions.</p> -->
-                    <div class="row about-list">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <label>ID No.</label>
-                                <p>{{profiledata.id}}</p>
-                            </div>
-                            <div class="media">
-                                <label>Name</label>
-                                <p>{{profiledata.hospitalcode}}</p>
-                            </div>
-                            <!-- <div class="media">
-                                <label>Age</label>
-                                <p>{{profiledata.age}}Yr</p>
-                            </div> -->
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <label>E-mail</label>
-                                <p>{{profiledata.email}}</p>
-                            </div>
-                            <div class="media">
-                                <label>Phone</label>
-                                <p>{{profiledata.mobile}}</p>
-                            </div>
-                            <!-- <div class="media">
-                                <label>Skype</label>
-                                <p>skype.0404</p>
-                            </div>
-                            <div class="media">
-                                <label>Freelance</label>
-                                <p>Available</p>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="about-avatar">
-                    <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""> -->
-                </div>
-            </div>
+<div>
+<mat-sidenav-container>
+    <mat-sidenav #sidebar mode="side" opened>
+      <mat-nav-list>
+        <div class="user">
+          <img src="../../assets/img/CG-LOGO.png" alt="admin logo" />
+          <p>
+            <span class="name"></span><br />
+            <span claas="mail"></span>
+          </p>
         </div>
-        <div class="counter">
-            <div class="row">
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="500" data-speed="500">{{profiledata.noofipd}}</h6>
-                        <p class="m-0px font-w-600">Total No of IPD</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="150" data-speed="150">{{profiledata.noofopd}}</h6>
-                        <p class="m-0px font-w-600">Total No Of OPD</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="850" data-speed="850">{{profiledata.totalbedoccupied}}</h6>
-                        <p class="m-0px font-w-600">Total Bed Occupied</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="190" data-speed="190">{{profiledata.totalayushman}}</h6>
-                        <p class="m-0px font-w-600">Total Ayushman patient</p>
-                    </div>
-                </div>
-            </div>
+        <div class="menu-head">
+          <span>
+        
+          <h6 class="dash" ><a mat-list-item routerLink="content"><mat-icon class="design_icon">dashboard</mat-icon>Dashboard</a></h6>
+          </span>
         </div>
-    </div>
-</section>
+        <mat-nav-list>
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">domain</mat-icon>
+                Department
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="add-dept">Add Department</a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">smartphone</mat-icon>
+                Project
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="add-project">Add Project</a>
+              <a mat-list-item routerLink="map-project-dept">Map Project Department</a>
+              <a mat-list-item routerLink="pro-post-allot">Project Post</a>
+              <a mat-list-item routerLink="financial-year-pos">Financial year Post</a>
+              <a mat-list-item routerLink="financial-post">Financial Post</a>
+              <a mat-list-item routerLink="map-post-emp">Map post-emp</a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">add_task</mat-icon>
+                Task
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="project-module"> Module Detail</a>
+              <a mat-list-item routerLink="map-project-module">Map Pro-Module</a>
+              <a mat-list-item routerLink="project-work">Project Work</a>
+              <a mat-list-item routerLink="project-work-detail"> Work Detail</a>
+              <a mat-list-item routerLink="work-allotment"> Work Allotment</a>            
+            </mat-nav-list>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">rule_setting</mat-icon>
+                Progress
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item>Project Progress</a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+  
+ 
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">wallet</mat-icon>
+                Finance
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item>Funds</a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">devices</mat-icon>
+                Resources
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="add-resource">Resources</a>
+              <a mat-list-item routerLink="assign-resource">Assign </a>
+              <a mat-list-item routerLink="resource-status"> Status</a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </mat-nav-list>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <div class="toolbar sticky-top nav">
+        <mat-toolbar>
+          <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+          <div class="box">
+            <mat-icon>search</mat-icon>
+          </div>
+        </mat-toolbar>
+      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

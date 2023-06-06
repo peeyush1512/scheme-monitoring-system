@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ChangepasswordService {
 
-  constructor() { }
+  constructor(  ) { }
+
+  public changepassword(data:any){
+    return {}
+  }
 }

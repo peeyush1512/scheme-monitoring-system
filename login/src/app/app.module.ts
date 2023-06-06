@@ -28,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -41,7 +42,7 @@ import { HospitalhomeComponent } from './hospital/hospitalhome/hospitalhome.comp
 import { ForgetComponent } from './forget/forget.component';
 
 
-@NgModule({
+@NgModule({ 
   declarations:[
     AppComponent ,
     LoginComponent,
@@ -83,7 +84,8 @@ import { ForgetComponent } from './forget/forget.component';
     MatNativeDateModule,
     MatTableModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   exports :[
     ReactiveFormsModule,

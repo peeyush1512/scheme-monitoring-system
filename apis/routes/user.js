@@ -75,8 +75,8 @@ router.post('/registrationuser',(req,res)=>{
     connection.query(query,[user.name],(err,results)=>{
         if(!err){
             if(results.length <=0){
-                query = "insert into registration(name,email,password,age,mobile)values(?,?,?,?,?)"
-                connection.query(query,[user.name,user.email,user.password,user.age,user.mobile],(err,results)=>{
+                query = "insert into registration(username,name,email,password,age,mobile)values(?,?,?,?,?,?)"
+                connection.query(query,[user.name,user.name,user.email,user.password,user.age,user.mobile],(err,results)=>{
                     if(!err){
                         return res.status(200).json({message:"sucessfully inserted"});
                     

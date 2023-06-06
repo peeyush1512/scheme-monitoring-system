@@ -23,8 +23,7 @@ import { ForgetComponent } from './forget/forget.component';
 const routes: Routes = [
   {
     path:'scheme',
-    component:  SchemeComponent,
-  
+    component:  SchemeComponent
   } ,
   {
     path:'table',
@@ -51,23 +50,22 @@ const routes: Routes = [
 {
   path:'registration',
 
-  component:RegistrationComponent,
+  component:RegistrationComponent
 },
 {
   path:'reportmis',
 
-  component:ReportMisComponent,
+  component:ReportMisComponent
 },
 {
   path:'hospitallogin',
 
-  component:HospitalLoginComponent,
+  component:HospitalLoginComponent
 },
-// {
-//   path:'',
-//   component:HomeComponent,
-//   pathMatch:"full"
-// } ,
+{ path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+
+},
+
 {
   path:'home',
   component:HomeComponent,

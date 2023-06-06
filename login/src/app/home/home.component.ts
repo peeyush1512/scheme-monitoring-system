@@ -19,13 +19,13 @@ import { Chart } from 'chart.js/auto';
     '../../assets/vendor/simple-datatables/style.css', '../../assets/vendor/boxicons/css/boxicons.min.css'
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   schemes: any;
   active_schemes: any;
   not_report_districts: any;
   public total_user: any;
-
+  
 
 
   constructor(private router: Router, private toastr: ToastrService,
@@ -35,9 +35,6 @@ export class HomeComponent implements OnInit {
 
 
   }
-  list1!:[any,any,any,any ,any,any];
-  data1=[136,231];
-  data2=[157,234];
   public chart1: any;
   public chart2: any;
   public dkbssychart1: any;
@@ -56,7 +53,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if (!localStorage.getItem('user')) {
       this.router.navigate(['login']);
-    }
+    }else {
+      this.loginService.rolevalidet(localStorage.getItem('user'))
+        .subscribe((result:any)=>{
+          if(!result.message){
+            this.router.navigate([result.navigate])
+          }
+          else{
+            this.router.navigate([result.navigate])
+          }
+        })  
+      }
 
     //FORM CREATING 
     this.schemeform = this.formbuilder.group({
@@ -209,9 +216,8 @@ export class HomeComponent implements OnInit {
 
   public logout() {
     localStorage.removeItem('user');
-    this.toastr.info("Log Out")
-    this.router.navigate([''])
-
+    this.toastr.info("Log Out");
+    this.router.navigate(['']);
   }
 
 
