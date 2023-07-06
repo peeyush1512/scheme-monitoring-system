@@ -10,6 +10,7 @@ import { SchemeserviceService } from './scheme/schemeservice.service'
 import { _getTargetValue } from '../../assets/vendor/chart.js/plugins/plugin.filler/filler.options';
 import { _getTarget } from '../../assets/vendor/chart.js/plugins/plugin.filler/filler.target';
 import { Chart } from 'chart.js/auto';
+import { ReportMisService } from '../report-mis/report-mis.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,13 +26,13 @@ export class HomeComponent {
   active_schemes: any;
   not_report_districts: any;
   public total_user: any;
-  
+  flag1:any;
 
 
   constructor(private router: Router, private toastr: ToastrService,
     private loginService: LoginService, private schemeService: SchemeService,
     public dialog: MatDialog, private service: SchemeserviceService,
-    private formbuilder: FormBuilder) {
+    private formbuilder: FormBuilder,private reportmisservice:ReportMisService) {
 
 
   }
@@ -46,28 +47,39 @@ export class HomeComponent {
   temp4: any;
   temp5: any;
   temp6: any;
+  def="Select Scheme ";
+  section:any;
+  subsection:any;
+  reportmis:any;
+
   distname: any;
   schemeform!: FormGroup;
+  sectionform!: FormGroup;
   dkbssyform!: FormGroup;
   jsondata: any
   ngOnInit(): void {
-    if (!localStorage.getItem('user')) {
+    if (localStorage.getItem('user')==null) {
       this.router.navigate(['login']);
     }else {
-      this.loginService.rolevalidet(localStorage.getItem('user'))
-        .subscribe((result:any)=>{
-          if(!result.message){
-            this.router.navigate([result.navigate])
-          }
-          else{
-            this.router.navigate([result.navigate])
-          }
-        })  
-      }
+
+    this.loginService.rolevalidet(localStorage.getItem('user')).subscribe((result:any)=>{
+        if(result.message){
+          this.router.navigate([result.navigate])  
+        }else if(result.err){
+          this.router.navigate(['login']);
+        }else{
+          this.router.navigate([result.navigate])
+        }
+      })  
+    }
 
     //FORM CREATING 
     this.schemeform = this.formbuilder.group({
       schemeselected: ['', []]
+
+    });
+    this.sectionform = this.formbuilder.group({
+      selectsection: ['', []]
 
     });
     this.dkbssyform = this.formbuilder.group({
@@ -76,10 +88,13 @@ export class HomeComponent {
 
     });
 
-
+    this.reportmisservice.getreportmis().subscribe((results:any)=>{
+      this.reportmis=results;
+    })
 
     //FUNCTION CALLS
     this.schemevalues();
+    this.sectionvalues();
     this.schemeselect = 0;
     // this.Chart1(this.data1);
     // this.Chart2(this.data2);
@@ -136,10 +151,40 @@ export class HomeComponent {
       this.schemes = results;
     })
   }
+  //SECTION VALUES FUNCTION
+  private sectionvalues() {
+    this.schemeService.getsection().subscribe((results: any) => {
+      if(!results.message){
+        this.section = results;
+      }else{
+        this.section=null;
+      }
+            
+    })
+  }
 
   public schemechange() {
 
     this.schemeselect = this.schemeform.controls['schemeselected'].value;
+   
+  }
+
+  public subsectionchange() {
+
+    this.schemeselect = this.schemeform.controls['schemeselected'].value;
+    console.log(this.schemeform.controls['schemeselected'].value);
+  }
+  public sectionchange() {
+
+    this.flag1 = this.sectionform.controls['selectsection'].value;    
+    this.schemeService.getsubsection({sectionid:this.sectionform.controls['selectsection'].value}).subscribe((result:any)=>{
+      if(!result.message){        
+        this.subsection = result;
+      }else{
+        this.subsection=null;
+      }
+    })
+    
   }
   public showscheme() {
 

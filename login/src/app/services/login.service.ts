@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService  {
 
-  loginurl ="http://localhost:3001/user/login";
-  loginuserurl ="http://localhost:3001/user/loginuser";
+  // loginurl ="http://localhost:3001/user/login";
+  loginuserurl ="http://localhost:3001/login/loginuser";
   registrationurl="http://localhost:3001/user/registration";
   gettotaluser="http://localhost:3001/user/totaluser";
   getuserdataurl="http://localhost:3001/user/getdata"
@@ -19,10 +19,10 @@ export class LoginService  {
 // public temp : any;
 
 //login user
-login(data : any ){
+// login(data : any ){
         
-  return this.http.post(this.loginurl,data);
-}
+//   return this.http.post(this.loginurl,data);
+// }
   loginuser(data : any ){
         
     return this.http.post(this.loginuserurl,data);

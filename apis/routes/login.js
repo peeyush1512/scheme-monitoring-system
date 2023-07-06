@@ -25,7 +25,7 @@ router.post('/loginuser', (req, res) => {
                         return res.json(err);
                     }
                 })
-            } else {
+            }else {
                 return res.json({ message: "user name is invalid" });
             }
         }else{
@@ -49,11 +49,15 @@ router.get('/usertype/:id',(req,res)=>{
                 }else if(result[0].role == 2){
                     return res.json({message:"district",navigate:"home"});
                 }else if(result[0].role == 3){
-                    return res.json({message:"hospital",navigate:"loginlospital"});
+                    return res.json({message:"hospital",navigate:"loginhospital"});
                 }else{
                     return res.json({error:"invalid",navigate:"login"});
                 } 
+            }else{
+                return res.json({error:"invalid",navigate:"login"});   
             }
+        }else{
+            return res.json({err,navigate:"login"});
         }
     })
 })

@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SchemeService {
 
-  addschemeurl="http://localhost:3001/schemes/addscheme"; 
+  addschemeurl="http://localhost:3001/schemes/addscheme";
+  getsectiponurl="http://localhost:3001/section/getsection";
+  getsubsectiponurl="http://localhost:3001/section/getsubsection";
+
   getschemeurl="http://localhost:3001/schemes/getschemes"; 
   gettotalurl="http://localhost:3001/schemes/gettotal"; 
   
@@ -20,6 +23,14 @@ export class SchemeService {
   public getschemes(){
 
     return this.http.get(this.getschemeurl);
+  }
+  public getsection(){
+
+    return this.http.get(this.getsectiponurl);
+  }
+  public getsubsection(data:any){
+
+    return this.http.post(this.getsubsectiponurl,data);
   }
   public gettotal(){
 

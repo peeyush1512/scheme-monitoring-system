@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute ,Navigation } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
-import { first } from 'rxjs/operators';
 // import { AuthenticationService } from '../_services';
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -51,13 +50,11 @@ export class LoginComponent implements OnInit {
     //login user
     public loginuser() {
         this.getjson={
-            "name":this.loginForm.controls['name'].value,
+            "username":this.loginForm.controls['name'].value,
             "password":this.loginForm.controls['password'].value
             
         }
         this.loginService.loginuser(this.getjson).subscribe((results : any )=>{
-          
-                   
           if(results.message){
                   this.toastr.info(results.message);
                   this.router.navigate(['login']);
@@ -66,12 +63,9 @@ export class LoginComponent implements OnInit {
               if(results[0].name){
                 this.toastr.success(results[0].name,"Welcome");
                 localStorage.setItem('user',results[0].id)
-                localStorage.setItem('role',results[0].role)
                 if(results[0].role==1 || results[0].role==2){
                   this.router.navigate(['home']);
-                }
-                else 
-                if(results[0].role==3){
+                }else if(results[0].role==3){
                   this.router.navigate(['loginhospital']);
                 }
                 else{

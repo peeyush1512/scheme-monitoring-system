@@ -11,12 +11,48 @@
         </div>
         <div class="menu-head">
           <span>
-        
-          <h6 class="dash" ><a mat-list-item routerLink="content"><mat-icon class="design_icon">dashboard</mat-icon>Dashboard</a></h6>
+          <h6 class="dash" ><a mat-list-item routerLink="#"><mat-icon class="design_icon">dashboard</mat-icon>Dashboard</a></h6>
           </span>
         </div>
-        <mat-nav-list>
-          <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
+        <mat-nav-list >
+          <mat-expansion-panel style="border-radius: 0%;background-color: rgb(25, 187, 245);" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">add_circle</mat-icon>
+                Entry Pages
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="ipdentry">IPD Entry</a>
+              <a mat-list-item routerLink="immunization">IMMUNIZAtion Entry</a>
+              <a mat-list-item routerLink="#">MIS Entry</a>
+            </mat-nav-list>
+          </mat-expansion-panel>  
+          <mat-expansion-panel style="border-radius: 0%;background-color: rgb(25, 187, 245);" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon-design">cloud_download</mat-icon>
+                Report Pages
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a href="immunizationentry"> imm</a>
+              <a mat-list-item routerLink="ipdentry">IPD Entry</a>
+              <a mat-list-item routerLink="immunization">IMMUNIZAtion Entry</a>
+              <a mat-list-item routerLink="misreport">MIS Entry</a>
+            </mat-nav-list>
+          </mat-expansion-panel> 
+          <mat-nav-list style="border-radius: 0%;background-color: rgb(25, 187, 245);">
+            <h6 class="logout" ><a mat-list-item (click)="changepassword()"><mat-icon class="design_icon">lock</mat-icon>Change Password</a></h6>
+          </mat-nav-list>
+          <mat-nav-list>
+            <div class="menu-head">
+              <span>
+                 <h6 class="logout" ><a mat-list-item (click)="logout()"><mat-icon class="design_icon">logout</mat-icon>LogOut</a></h6>
+              </span>
+            </div>
+          </mat-nav-list>
+          <!-- <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <mat-icon class="icon-design">domain</mat-icon>
@@ -26,8 +62,7 @@
             <mat-nav-list>
               <a mat-list-item routerLink="add-dept">Add Department</a>
             </mat-nav-list>
-          </mat-expansion-panel>
-          
+          </mat-expansion-panel>   
           <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -44,7 +79,6 @@
               <a mat-list-item routerLink="map-post-emp">Map post-emp</a>
             </mat-nav-list>
           </mat-expansion-panel>
-
           <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -60,7 +94,6 @@
               <a mat-list-item routerLink="work-allotment"> Work Allotment</a>            
             </mat-nav-list>
           </mat-expansion-panel>
-
           <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -72,8 +105,6 @@
               <a mat-list-item>Project Progress</a>
             </mat-nav-list>
           </mat-expansion-panel>
-  
- 
           <mat-expansion-panel style="border-radius: 0%;" class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -97,9 +128,12 @@
               <a mat-list-item routerLink="assign-resource">Assign </a>
               <a mat-list-item routerLink="resource-status"> Status</a>
             </mat-nav-list>
-          </mat-expansion-panel>
+          </mat-expansion-panel> -->
         </mat-nav-list>
+       
+        
       </mat-nav-list>
+      
     </mat-sidenav>
   
     <mat-sidenav-content>

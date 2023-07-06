@@ -18,6 +18,8 @@ const userRoute11 =require('./routes/callapi');
 const userRoute12 =require('./routes/changepassword');
 const userRoute13 =require('./routes/login');
 const userRoute14 =require('./routes/democrypt');
+const userRoute15 =require('./routes/demo');
+const userRoute16 =require('./routes/section');
 
 const app = express();
 
@@ -43,6 +45,10 @@ app.use('/callapi',userRoute11)
 app.use('/changepassword',userRoute12)
 app.use('/login',userRoute13)
 app.use('/crypt',userRoute14)
+app.use('/demo',userRoute15)
+app.use('/section',userRoute16)
+
+
 app.listen(process.env.PORT_SERVER || 3001 );
 
 

@@ -227,21 +227,22 @@ router.get('/ayushmaan',(req,res)=>{
 //SOTTO API
 router.get('/sotto',(req,res)=>{
 
-  soap.createClient(url1,{},(err,client)=>{
-    if(!err){
-      client.sotto_details({},(error,result)=>{
-        if(!error){
-          return res.status(200).json(JSON.parse(result.sotto_detailsResult));
-        }
-        else{
-          return res.status(400).json(error);
-        }
-      })   
-    }
-    else{
-      return res.status(400).json(err);
-    }
-  })
+  // soap.createClient(url1,{},(err,client)=>{
+  //   if(!err){
+  //     client.sotto_details({},(error,result)=>{
+  //       if(!error){
+  //         return res.status(200).json(JSON.parse(result.sotto_detailsResult));
+  //       }
+  //       else{
+  //         return res.status(400).json(error);
+  //       }
+  //     })   
+  //   }
+  //   else{
+  //     return res.status(400).json(err);
+  //   }
+  // })
+  return res.json({message:"error"})
 })
 
  

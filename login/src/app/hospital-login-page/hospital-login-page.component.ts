@@ -20,10 +20,11 @@ export class HospitalLoginPageComponent implements OnInit {
     }else {
     this.hospital.rolevalidet(localStorage.getItem('user'))
       .subscribe((result:any)=>{
-        if(!result.message){
+        if(result.message){
           this.router.navigate([result.navigate])  
-        }
-        else{
+        }else if(result.err){
+          this.router.navigate(['login']);
+        }else{
           this.router.navigate([result.navigate])
         }
       })  
@@ -37,6 +38,9 @@ export class HospitalLoginPageComponent implements OnInit {
     localStorage.removeItem('user');
     this.toastr.info("Log Out");
     this.router.navigate(['']);
+  }
+  changepassword(){
+    this.toastr.info("change password page");
   }
 
 

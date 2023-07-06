@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -216,38 +218,38 @@
         </li> -->
         <!-- End Messages Nav -->
 
-        <li >
-        
+        <li>
+
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>menu</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="editprofile()">
-              <mat-icon class="mat-icon-rtl-mirror"  >edit</mat-icon>
+              <mat-icon class="mat-icon-rtl-mirror">edit</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item (click)="changepassword()" >
-              <mat-icon class="mat-icon-rtl-mirror" >lock</mat-icon>
+            <button mat-menu-item (click)="changepassword()">
+              <mat-icon class="mat-icon-rtl-mirror">lock</mat-icon>
               <span>Change Password</span>
             </button>
             <button mat-menu-item (click)="profile()">
-              <mat-icon class="mat-icon-rtl-mirror" >account_circle</mat-icon>
+              <mat-icon class="mat-icon-rtl-mirror">account_circle</mat-icon>
               <span>Profile</span>
             </button>
             <button mat-menu-item (click)="logout()">
-              <mat-icon class="mat-icon-rtl-mirror" >logout</mat-icon>
+              <mat-icon class="mat-icon-rtl-mirror">logout</mat-icon>
               <span>Log Out</span>
             </button>
           </mat-menu>
-          </li>
-          <!-- <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+        </li>
+        <!-- <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../../assets/img/CG-LOGO.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"> SCHEMES</span>
           </a>End Profile Iamge Icon
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile"> -->
-          
-           <!--  <li class="dropdown-header">
+
+        <!--  <li class="dropdown-header">
               <h6>ALL SCHEMES</h6>
               <span> CHATTISGARH ALL SCHEMES</span>
             </li>
@@ -292,7 +294,7 @@
               </a>
             </li>
 -->
-          <!-- </ul>End Profile Dropdown Items -->
+        <!-- </ul>End Profile Dropdown Items -->
         <!-- </li>End Profile Nav -->
 
       </ul>
@@ -301,31 +303,30 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  <!-- <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav " id="sidebar-nav">
-
       <li class="nav-item">
         <a class="nav-link " routerLink="home">
           <i class=""></i>
           <span>Dashboard</span>
         </a>
-      </li>End Dashboard Nav
+      </li>
       <li class="nav-item ">
         <a href="ipdentry">
           <i class=""></i><span>IPD Enrty Page</span>
         </a>
-      </li>End Dashboard Nav
+      </li>
       <li class="nav-item">
         <a href="immunizationentry">
           <i class=""></i><span>Immunization Entry Page</span>
         </a>
-      </li>End Dashboard Nav
+      </li>
       <li class="nav-item">
         <a href="hospitallogin">
           <i class=""></i><span>Hospital Login Page</span>
         </a>
-      </li>End Dashboard Nav
+      </li>
       <li class="nav-item">
         <a href="reportmis">
           <i class=""></i><span>MIS Report Page</span>
@@ -334,303 +335,786 @@
       
     </ul>
 
-  </aside>End Sidebar -->
+  </aside>
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>SCHEMES</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a (click)="home_page()">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
-    </div><!-- End Page Title -->
+    </div>
 
     <section class="section dashboard">
-      <div class="row">
-        <!-- Left side columns -->
-        <div>
-          <div class="card">
-            <div class="card-body">
-              <div class="row justify-content-center text-left">
-                <form [formGroup]="schemeform">
-                  <div class="form-group col-sm-6 flex-column ">
-                    <label class="form-control form-label" for="Scheme">Scheme
-                    <span class="text-danger"> *</span></label>
-                    <select class="form-select form-control " id="schemeselected" formControlName="schemeselected"  (change)="schemechange()" >
-                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
-                        <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid" class="list-group-item-primary">
-                            {{ scheme.schemename }}
-                        </option>
-                    </select>
+      <div class="row card">
+
+        <div class="col-lg-3">
+          <div class="card-body">
+            <div class="row justify-content-center text-left">
+              <form [formGroup]="sectionform">
+                <div class="form-group col-sm-6 flex-column ">
+                  <select class="form-select form-control " placeholder="Select section" id="selectsection"
+                    formControlName="selectsection" (change)="sectionchange()">
+                    <option [ngValue]="0" class="list-group-item-primary"> Select Section</option>
+                    <option *ngFor="let section of section" [ngValue]="section.sectionid" class="list-group-item-primary">
+                      {{ section.sectionname }}
+                    </option>
+                  </select>
                 </div>
-                </form>
-            </div>
+              </form>
             </div>
           </div>
         </div>
-        <!-- <div class="card">
-          <div class="chart-container justify-content-center">
-            <h1>CLAIM SUMMARY</h1>
-          </div>
-          <div class="chart-container justify-content-center row ">
-              <canvas  id="claim1"  height="400" width="400" >{{ chart1 }}</canvas>
-              <canvas  id="claim2"  height="400" width="400" >{{ chart2 }}</canvas>
-              <canvas  id="total"  height="400" width="400" >{{ chart3 }}</canvas>
-          </div>
-        
-        </div> -->
-        <div class="card ">
-          <div class="card-body">
-            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
-              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
-            </div>
-            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==2">
-              
-              <h1 class="headertable">State Organ and Tissue Transplant Organisation Chhattisgarh(SOTTO) </h1>
-                <table >
-                    <tr>
-                        <th>Total No. Cases</th>
-                        <th>Approvd Cases</th>
-                        <th>Transplant Done</th>
-                        <th>Pending For Approved</th>
-                        <!-- <th>Age</th> -->
-                    </tr>
-                    <tr *ngFor="let t3 of temp3">
-                        <td class="t3a">{{t3.total_no_cases}}</td>
-                        <td class="t3b">{{t3.Approvd_case}}</td>
-                        <td class="t3c">{{t3.Transpant_done}}</td>
-                        <td class="t3d">{{t3.Pending_for_Approved}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class=" row justify-content-center text-center" *ngIf="schemeselect==4">
-              <h1 class="headertable">DME INCENTIVE (Directorate of Medical Education) </h1>
-                <table>
-                    <tr>
-                        <th>Cases Initiated</th>
-                        <th>Amount Initiated </th>
-                        <th>Total Paid Cases</th>
-                        <th>Total Paid Amount</th>
-                        <!-- <th>Age</th> -->
-                    </tr>
-                    <tr *ngFor="let t3 of temp4">
-                        <td class="t3a">{{t3.CasesInitiated}}</td>
-                        <td class="t3b">{{t3.AmountInitiated}}</td>
-                        <td class="t3c">{{t3.TotalPaidCases}}</td>
-                        <td class="t3d">{{t3.TotalPaidAmount}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class=" row justify-content-center text-center" *ngIf="schemeselect==5">
-              <h1 class="headertable">DHS INCENTIVE (Directorate of Health & Family Welfare Government of Chhattisgarh)</h1>
-                <table>
-                  <tr>
-                    <th>Cases Initiated</th>
-                    <th>Amount Initiated </th>
-                    <th>Total Paid Cases</th>
-                    <th>Total Paid Amount</th>
-                    <!-- <th>Age</th> -->
-                </tr>
-                <tr *ngFor="let t3 of temp5">
-                    <td class="t3a">{{t3.CasesInitiated}}</td>
-                    <td class="t3b">{{t3.AmountInitiated}}</td>
-                    <td class="t3c">{{t3.TotalPaidCases}}</td>
-                    <td class="t3d">{{t3.TotalPaidAmount}}</td>
-                </tr>
-                </table>
-            </div>
-            <div class=" row justify-content-center text-center" *ngIf="schemeselect==6">
-              <h1 >COVID INCENTIVE </h1>
-                <table>
-                  <tr>
-                    <th>Cases Initiated</th>
-                    <th>Amount Initiated </th>
-                    <th>Total Paid Cases</th>
-                    <th>Total Paid Amount</th>
-                    <!-- <th>Age</th> -->
-                </tr>
-                <tr *ngFor="let t3 of temp6">
-                    <td class="t3a">{{t3.CasesInitiated}}</td>
-                    <td class="t3b">{{t3.AmountInitiated}}</td>
-                    <td class="t3c">{{t3.TotalPaidCases}}</td>
-                    <td class="t3d">{{t3.TotalPaidAmount}}</td>
-                </tr>
-                </table>
-            </div>
-            <div class="ayushmaan row justify-content-center text-center" *ngIf="schemeselect==3">
-              <h1 class="headertable">ayushmaan</h1>
-              <input type="year" name="year" id="year"  >
-                <table>
-                    <tr>
-                        <th>District Name</th>
-                        <th>Cards</th>
-                        <!-- <th>Transpant Done</th>
-                        <th>Pending For Approved</th> -->
-                        <!-- <th>Age</th> -->
-                    </tr>
-                    <tr *ngFor="let t2 of temp2">
-                        <td class="t2a">{{t2.district_name}}</td>
-                        <td class="t2b">{{t2.cards}}</td>
-                        <!-- <td class="t3">{{t1.yr}}</td>
-                        <td class="t4">{{t1.dtstamp}}</td> -->
-                    </tr>
-                </table>
-            </div>
-            <div class="dkbssy row justify-content-center "  *ngIf="schemeselect==1"> 
-              <h1 class="headertable">Dr. Khoobchand Baghel Swasthya Sahayata Yojana (DKBSSY)</h1>
-              <form [formGroup]="dkbssyform" (submit)="dkbssysubmit()" class="justify-content-center">
-                <div class="form-group col-sm-6 flex-column ">
-                  <label class="form-control form-label" for="Scheme">District Name 
-                  <span class="text-danger"> *</span></label>
-                  <select class="form-select  form-label" id="districtselected" formControlName="districtselected" aria-placeholder="Select District " (change)="dkbssydist()" >
-                      <option [ngValue]="0" class="list-group-item-primary"> Select District </option>
-                      <option *ngFor="let Distname of distname" [ngValue]="Distname.distnameen" class="list-group-item-primary">
-                          {{Distname.distnameen}}
-                      </option>
-                  </select>
-                  <label style="color: red;" *ngIf="dkbssyform.get('districtselected')?.touched && dkbssyform.get('districtselected')?.value=='0'">Select District Name 
-                  </label>
+
+        <div *ngIf="flag1==2" class="row">
+          <div>
+            <div class="card">
+              <div class="card-body">
+                <div class="row justify-content-center text-left">
+                  <form [formGroup]="schemeform">
+                    <div class="form-group col-sm-6 flex-column ">
+                      <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                        formControlName="schemeselected" (change)="schemechange()">
+                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                        <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                          class="list-group-item-primary">
+                          {{ scheme.schemename }}
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
               </div>
-                <!-- <div class="form-group col-sm-6 flex-column ">
+            </div>
+          </div>
+          <div class="card ">
+            <div class="card-body">
+              <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+                <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+              </div>
+              <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==2">
+
+                <h1 class="headertable">State Organ and Tissue Transplant Organisation Chhattisgarh(SOTTO) </h1>
+                <table>
+                  <tr>
+                    <th>Total No. Cases</th>
+                    <th>Approvd Cases</th>
+                    <th>Transplant Done</th>
+                    <th>Pending For Approved</th>
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t3 of temp3">
+                    <td class="t3a">{{t3.total_no_cases}}</td>
+                    <td class="t3b">{{t3.Approvd_case}}</td>
+                    <td class="t3c">{{t3.Transpant_done}}</td>
+                    <td class="t3d">{{t3.Pending_for_Approved}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class=" row justify-content-center text-center" *ngIf="schemeselect==4">
+                <h1 class="headertable">DME INCENTIVE (Directorate of Medical Education) </h1>
+                <table>
+                  <tr>
+                    <th>Cases Initiated</th>
+                    <th>Amount Initiated </th>
+                    <th>Total Paid Cases</th>
+                    <th>Total Paid Amount</th>
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t3 of temp4">
+                    <td class="t3a">{{t3.CasesInitiated}}</td>
+                    <td class="t3b">{{t3.AmountInitiated}}</td>
+                    <td class="t3c">{{t3.TotalPaidCases}}</td>
+                    <td class="t3d">{{t3.TotalPaidAmount}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class=" row justify-content-center text-center" *ngIf="schemeselect==5">
+                <h1 class="headertable">DHS INCENTIVE (Directorate of Health & Family Welfare Government of
+                  Chhattisgarh)</h1>
+                <table>
+                  <tr>
+                    <th>Cases Initiated</th>
+                    <th>Amount Initiated </th>
+                    <th>Total Paid Cases</th>
+                    <th>Total Paid Amount</th>
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t3 of temp5">
+                    <td class="t3a">{{t3.CasesInitiated}}</td>
+                    <td class="t3b">{{t3.AmountInitiated}}</td>
+                    <td class="t3c">{{t3.TotalPaidCases}}</td>
+                    <td class="t3d">{{t3.TotalPaidAmount}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class=" row justify-content-center text-center" *ngIf="schemeselect==6">
+                <h1>COVID INCENTIVE </h1>
+                <table>
+                  <tr>
+                    <th>Cases Initiated</th>
+                    <th>Amount Initiated </th>
+                    <th>Total Paid Cases</th>
+                    <th>Total Paid Amount</th>
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t3 of temp6">
+                    <td class="t3a">{{t3.CasesInitiated}}</td>
+                    <td class="t3b">{{t3.AmountInitiated}}</td>
+                    <td class="t3c">{{t3.TotalPaidCases}}</td>
+                    <td class="t3d">{{t3.TotalPaidAmount}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="ayushmaan row justify-content-center text-center" *ngIf="schemeselect==3">
+                <h1 class="headertable">ayushmaan</h1>
+                <input type="year" name="year" id="year">
+                <table>
+                  <tr>
+                    <th>District Name</th>
+                    <th>Cards</th>
+                    <!-- <th>Transpant Done</th>
+                        <th>Pending For Approved</th> -->
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t2 of temp2">
+                    <td class="t2a">{{t2.district_name}}</td>
+                    <td class="t2b">{{t2.cards}}</td>
+                    <!-- <td class="t3">{{t1.yr}}</td>
+                        <td class="t4">{{t1.dtstamp}}</td> -->
+                  </tr>
+                </table>
+              </div>
+              <div class="dkbssy row justify-content-center " *ngIf="schemeselect==1">
+                <h1 class="headertable">Dr. Khoobchand Baghel Swasthya Sahayata Yojana (DKBSSY)</h1>
+                <form [formGroup]="dkbssyform" (submit)="dkbssysubmit()" class="justify-content-center">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <label class="form-control form-label" for="Scheme">District Name
+                      <span class="text-danger"> *</span></label>
+                    <select class="form-select  form-label" id="districtselected" formControlName="districtselected"
+                      aria-placeholder="Select District " (change)="dkbssydist()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select District </option>
+                      <option *ngFor="let Distname of distname" [ngValue]="Distname.distnameen"
+                        class="list-group-item-primary">
+                        {{Distname.distnameen}}
+                      </option>
+                    </select>
+                    <label style="color: red;"
+                      *ngIf="dkbssyform.get('districtselected')?.touched && dkbssyform.get('districtselected')?.value=='0'">Select
+                      District Name
+                    </label>
+                  </div>
+                  <!-- <div class="form-group col-sm-6 flex-column ">
                   <label class="form-control form-label" for="Scheme">year 
                   <span class="text-danger"> *</span></label>
                   <input type="date|{yyyy}" class="form-control form-text" formControlName="year" id="year" placeholder="ex : 2020">
                   <label style="color: red;" *ngIf="dkbssyform.get('year')?.touched && dkbssyform.get('year')?.invalid">Enter the valid year
                   </label>
               </div> -->
-                <div class="form-group col-sm-6 flex-column ">
-                  <button class="btn-warning">Show</button>
+                  <div class="form-group col-sm-6 flex-column ">
+                    <button class="btn-warning">Show</button>
+                  </div>
+                </form>
+                <div>
+                  <canvas id="dkbssychart" height="400" width="400">{{ dkbssychart1 }}</canvas>
                 </div>
-              </form> 
-              <div>
-                <canvas  id="dkbssychart"  height="400" width="400" >{{ dkbssychart1 }}</canvas>
-              </div> 
-              <table>
-                    <tr>
-                        <th>District Name</th>
-                        <th>Year</th>
-                        <th>No. of Beneficiaries</th>
-                        <!-- <th> Date </th> -->
-                        <!-- <th>Age</th> -->
-                    </tr>
-                    <tr *ngFor="let t1 of temp1">
-                        <td class="t1a">{{t1.district_name}}</td>
-                        <td class="t1c">{{t1.yr}}</td>
-                        <td class="t1b">{{t1.beneficiaries}}</td>
-                        <!-- <td class="t1d">{{t1.dtstamp | date:'yyyy-MM-dd'}}</td> -->
-                    </tr>
-                    
+                <table>
+                  <tr>
+                    <th>District Name</th>
+                    <th>Year</th>
+                    <th>No. of Beneficiaries</th>
+                    <!-- <th> Date </th> -->
+                    <!-- <th>Age</th> -->
+                  </tr>
+                  <tr *ngFor="let t1 of temp1">
+                    <td class="t1a">{{t1.district_name}}</td>
+                    <td class="t1c">{{t1.yr}}</td>
+                    <td class="t1b">{{t1.beneficiaries}}</td>
+                    <!-- <td class="t1d">{{t1.dtstamp | date:'yyyy-MM-dd'}}</td> -->
+                  </tr>
+
                 </table>
+              </div>
+
             </div>
-            
-        </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="row">
-
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-
-                <div class="card-body">
-                  <h5 class="card-title"><span>TOTAL ACTIVE OR INTRGRATED SCHEMES</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi back-to-top"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6 *ngFor="let t1 of active_schemes">{{t1.total}} </h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
-                <div class="card-body">
-                  <h5 class="card-title"><span>TOTAL DISTRICTS ARE NOT REPORTING</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>{{not_report_districts}}</h6>
-                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
-                <div class="card-body">
-                  <h5 class="card-title"> <span>TOTAL REGISTED USER</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6 *ngFor="let t1 of total_user">{{t1.total}} </h6>
-                      <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
-           
           </div>
-        </div><!-- End Left side columns -->
+          <div class="col-lg-8">
+            <div class="row">
 
-        <!-- Right side columns -->
-        
+
+
+            </div>
+          </div>
+        </div>
+        <div *ngIf="flag1==1" class="row">
+          <div>
+            <div class="card">
+              <div class="card-body">
+                <div class="row justify-content-center text-left">
+                  <form [formGroup]="schemeform">
+                    <div class="form-group col-sm-6 flex-column ">
+                      <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                        formControlName="schemeselected" (change)="subsectionchange()">
+                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                        <option *ngFor="let subsection of subsection" [ngValue]="subsection.subsectionid"
+                          class="list-group-item-primary">
+                          {{ subsection.subsectionname }}
+                        </option>
+                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                        
+                      </select>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card ">
+            <div class="card-body">
+              <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+                <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="flag1==3" class="row">
+          <div>
+            <div class="card">
+              <div class="card-body">
+                <!-- <div class="row justify-content-center text-left">
+                  <form [formGroup]="schemeform">
+                    <div class="form-group col-sm-6 flex-column ">
+                      <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                        formControlName="schemeselected" (change)="schemechange()">
+                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                        <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                          class="list-group-item-primary">
+                          {{ scheme.schemename }}
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="card ">
+            <div class="card-body">
+              <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+                <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="flag1==4" class="row">
+          <div>
+            <div class="card">
+              <div class="card-body">
+                <!-- <div class="row justify-content-center text-left">
+                  <form [formGroup]="schemeform">
+                    <div class="form-group col-sm-6 flex-column ">
+                      <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                        formControlName="schemeselected" (change)="schemechange()">
+                        <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                        <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                          class="list-group-item-primary">
+                          {{ scheme.schemename }}
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="card ">
+            <div class="card-body">
+              <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+                <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==5" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==6" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==7" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==8" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==9" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==10" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==11" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==12" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==13" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==14" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==15" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+              <h1>आयुष्मान भारत डिजिटल मिशन  </h1>
+
+              <div class="row justify-content-center">
+                <h3></h3>
+                <table>
+                  <tr>
+                      <th class="id">S. No.</th>
+                      <th class="dis">District Name</th>
+                      <th class="claim">Total Number of Claims</th>
+                      <th class="amount">Total Claim Amount in (cr.) Rs.</th>
+                  </tr>
+                  <tr *ngFor="let misreport of reportmis">
+                      <td class="id">{{misreport.id}}</td>
+                      <td class="dis">{{misreport.districtname}}</td>
+                      <td class="claim">{{misreport.noofclaims}}</td>
+                      <td class="amount">{{misreport.claimamount}}</td>
+                  </tr>
+              </table>
+              </div>
+
+              <br>
+              <br>
+               <div>
+                <h3>जिले की जनसंखया (राशनकार्ड आनुसार ) के विरुद्ध आभा पंजीयन की संख्या</h3>
+                <table><tr>
+                    <th>क्रं.</th>
+                    <th>जिले का नाम</th>
+                    <th>जिले की जनसंख्या </th>
+                    <th>आभा पंजीयन की संख्या </th>
+                    <th>उपलब्धि प्रतिशत</th>
+                  </tr>
+                  <tr>
+
+                  </tr>
+                </table>
+               </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==16" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <!-- <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="flag1==17" class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row justify-content-center text-left">
+                <form [formGroup]="schemeform">
+                  <div class="form-group col-sm-6 flex-column ">
+                    <select class="form-select form-control " placeholder="Select Scheme" id="schemeselected"
+                      formControlName="schemeselected" (change)="schemechange()">
+                      <option [ngValue]="0" class="list-group-item-primary"> Select Scheme </option>
+                      <option *ngFor="let scheme of schemes" [ngValue]="scheme.schemeid"
+                        class="list-group-item-primary">
+                        {{ scheme.schemename }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <div class="sotto row justify-content-center text-center" *ngIf="schemeselect==0">
+              <div class=" card-title">WELCOME SCHEME REPORTING VIEW SYSTEM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-xxl-4 col-md-6">
+        <div class="card info-card sales-card">
+          <div class="card-body">
+            <h5 class="card-title"><span>TOTAL ACTIVE OR INTRGRATED SCHEMES</span></h5>
+
+            <div class="d-flex align-items-center">
+              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi back-to-top"></i>
+              </div>
+              <div class="ps-3">
+                <h6 *ngFor="let t1 of active_schemes">{{t1.total}} </h6>
+                <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xxl-4 col-md-6">
+        <div class="card info-card revenue-card">
+          <div class="card-body">
+            <h5 class="card-title"><span>TOTAL DISTRICTS ARE NOT REPORTING</span></h5>
+            <div class="d-flex align-items-center">
+              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi bi-currency-dollar"></i>
+              </div>
+              <div class="ps-3">
+                <h6>{{not_report_districts}}</h6>
+                <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xxl-4 col-xl-12">
+
+        <div class="card info-card customers-card">
+
+          <div class="card-body">
+            <h5 class="card-title"> <span>TOTAL REGISTED USER</span></h5>
+
+            <div class="d-flex align-items-center">
+              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi bi-people"></i>
+              </div>
+              <div class="ps-3">
+                <h6 *ngFor="let t1 of total_user">{{t1.total}} </h6>
+                <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       </div>
     </section>
@@ -642,11 +1126,12 @@
     <div class="copyright">
     </div>
     <div class="credits">
-      
+
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <!-- <script src="../../assets/"></script> -->

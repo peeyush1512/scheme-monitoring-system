@@ -68,18 +68,18 @@ const routes: Routes = [
 
 {
   path:'home',
-  component:HomeComponent,
-  children:[
-    {
-      path:'/immunizationentry',
-      component:ImmunizationDetailsEntryComponent,
-      
-    } ,
-  ]
+  component:HomeComponent
 },
 {
   path:'mainhome',
   component:MainHomeComponent,
+  children:[
+    {
+      path:'immunization',
+      component:ImmunizationDetailsEntryComponent,
+      
+    } ,
+  ]
   
 } ,
 

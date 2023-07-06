@@ -16,6 +16,7 @@ const connection = mariadb.createPool({
     })
  
     connection.getConnection((err,client)=>{
+    
         if(!err){
             console.log('Connected');
             // client.query(sql,(error,result)=>{
